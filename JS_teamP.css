@@ -1,0 +1,95 @@
+/* 기본 리셋 및 폰트 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 전체 배경 및 레이아웃 설정 */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: rgb(63, 81, 181);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+/* 컨테이너 및 메인 레이아웃 */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search {
+    margin-bottom: 20px;
+}
+
+.search input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.search button {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(63, 81, 181);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: rgb(50, 60, 140);
+}
+
+/* 결과 영역 스타일링 */
+.results {
+    text-align: center;
+}
+
+.results h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.results p {
+    font-size: 1.2em;
+    color: rgb(63, 81, 181);
+}
+
+.chart {
+    margin-top: 20px;
+    height: 300px;
+    background-color: #eee;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.2em;
+    border: 2px dashed #ddd;
+}
+
+.chart:empty::before {
+    content: '차트가 여기에 표시됩니다.';
+}
+
+
