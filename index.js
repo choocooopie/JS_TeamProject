@@ -6,13 +6,11 @@ const cors = require('cors');
 
 const app = express();
 const port = 3000;
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server is running at http://0.0.0.0:${port}`);
-});
-
 
 // CORS 미들웨어 사용
-app.use(cors());
+app.use(cors({
+    origin: '*', // 모든 도메인 허용
+}));
 
 // 정적 파일 서빙 (HTML, CSS, JS 파일)
 app.use(express.static('public'));
@@ -35,7 +33,7 @@ app.get('/api/popular-stocks', async (req, res) => {
         $('table.type_2 tbody tr').each((index, element) => {
             if (index >= 2) { // 모든 항목 추출
                 const $element = $(element);
-                
+
                 const rank = $element.find('td:nth-child(1)').text().trim(); // 순위
                 const name = $element.find('td:nth-child(2)').text().trim(); // 종목명
                 const price = formatNumber($element.find('td:nth-child(3)').text().trim()); // 현재가
@@ -48,10 +46,6 @@ app.get('/api/popular-stocks', async (req, res) => {
                 const marketCap = formatNumber($element.find('td:nth-child(10)').text().trim()); // 시가총액
                 const per = $element.find('td:nth-child(11)').text().trim(); // PER
                 const roe = $element.find('td:nth-child(12)').text().trim(); // ROE
-
-                // 디버깅: 전일비와 등락률을 콘솔에 출력
-                console.log(`Change: ${change}`);
-                console.log(`Rate: ${rate}`);
 
                 if (name && price && change && rate && volume && amount && bid && ask && marketCap && per && roe) {
                     allStocks.push({ rank, name, price, change, rate, volume, amount, bid, ask, marketCap, per, roe });
@@ -76,9 +70,10 @@ app.get('/api/popular-stocks', async (req, res) => {
 });
 
 // 서버 시작
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running at http://0.0.0.0:${port}`);
 });
+
 
 
 
