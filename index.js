@@ -6,6 +6,10 @@ const cors = require('cors');
 
 const app = express();
 const port = 3000;
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running at http://0.0.0.0:${port}`);
+});
+
 
 // CORS 미들웨어 사용
 app.use(cors());
