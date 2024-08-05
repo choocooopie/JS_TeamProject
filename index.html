@@ -5,31 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팀프로젝트 주식 정보</title>
-    <link rel="stylesheet" href="JS_teamP.css">
+    <link rel="stylesheet" href="JS_teamP_mainpage.css">
     <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
+        <div>
+            <a href="index.html">
+                <div class="button">
+                    <div class="box">C</div>
+                    <div class="box">U</div>
+                    <div class="box">S</div>
+                    <div class="box">T</div>
+                    <div class="box">O</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <div class="button-group">
+                <ul>
+                    <li><a href="#home" class="button2"><span>홈</span></a></li>
+                    <li><a href="domestic_market_korea.html" class="button2"><span>국내</span></a></li>
+                    <li><a href="#international" class="button2"><span>해외</span></a></li>
+                    <li><a href="#indicators" class="button2"><span>증시</span></a></li>
+                    <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
+                </ul>
+            </div>
+        </nav>
         <h1>주식 정보 확인</h1>
     </header>
+    
+    <!-- Main Content Section -->
     <main>
         <div class="container">
-            <section class="results">
-                <h2>인기 종목 TOP 20</h2>
-                <div id="popular-stocks-list">
-                    <!-- 인기 종목 테이블이 여기에 들어갑니다 -->
-                </div>
-                <div id="pagination">
-                    <!-- 페이지네이션 버튼이 여기에 들어갑니다 -->
-                </div>
-            </section>
+            <div class="section-wrapper">
+                <!-- Latest Economic News Section -->
+                <section id="latest-news">
+                    <h2>최신 경제 뉴스</h2>
+                    <div id="news-content">
+                        <!-- 최신 경제 뉴스 내용이 여기에 들어갑니다 -->
+                    </div>
+                </section>
+
+                <!-- Global Exchange Rates Section -->
+                <section id="exchange-rates">
+                    <h2>세계 환율 정보</h2>
+                    <div id="exchange-content">
+                        <!-- 세계 환율 정보 내용이 여기에 들어갑니다 -->
+                    </div>
+                </section>
+                
+                <!-- Domestic Stocks Section -->
+                <section id="domestic-stocks">
+                    <h2>국내 주식 가격</h2>
+                    <div id="domestic-content">
+                        <!-- 국내 주식 가격 내용이 여기에 들어갑니다 -->
+                    </div>
+                </section>
+                
+                <!-- International Stocks Section -->
+                <section id="international-stocks">
+                    <h2>해외 주식 가격</h2>
+                    <div id="international-content">
+                        <!-- 해외 주식 가격 내용이 여기에 들어갑니다 -->
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="JS_teamP.js"></script>
+    <script src="JS_teamP_mainpage.js"></script>
 </body>
 </html>
+
 
 
 
