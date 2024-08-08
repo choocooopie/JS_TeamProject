@@ -24,7 +24,146 @@ header {
 
 header h1 {
     font-size: 2em;
-    margin-top: 20px; /* 버튼 그룹과 간격 조정 */
+    margin-top: 20px;
+}
+
+/* 컨테이너 및 메인 레이아웃 */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #20232a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* 인기 종목 테이블 스타일 */
+.popular-stocks {
+    margin-top: 20px;
+}
+
+.popular-stocks table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+.popular-stocks th, .popular-stocks td {
+    padding: 10px;
+    font-size: 12px;
+    border: none; /* 테두리 제거 */
+    text-align: center;
+}
+
+.popular-stocks th {
+    background-color: #2c2f36;
+}
+
+/* 첫 번째 항목 위에만 선 추가 */
+.popular-stocks tr:first-child td {
+    border-top: 2px solid #444; /* 첫 번째 행 위에만 선 추가 */
+}
+
+/* 기본 스타일 */
+.change-icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* 상승 아이콘과 텍스트 스타일 */
+.text-success {
+    color: #F04251; /* 상승 시 텍스트 빨간색 */
+}
+
+.text-success .change-icon.up {
+    border-bottom: 10px solid #F04251; /* 빨간색 삼각형 */
+}
+
+/* 하락 아이콘과 텍스트 스타일 */
+.text-danger {
+    color: #3485FA; /* 하락 시 텍스트 파란색 */
+}
+
+.text-danger .change-icon.down {
+    border-top: 10px solid #3485FA; /* 파란색 삼각형 */
+}
+
+/* 페이지네이션 스타일 */
+#pagination {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.pagination-button {
+    background-color: #2c2f36; /* 배경색을 배경보다 약간 어두운 색으로 설정 */
+    color: #fff; /* 텍스트 색상 */
+    border: none;
+    border-radius: 20px; /* 동그란 모양 */
+    padding: 8px 16px;
+    margin: 0 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pagination-button:hover {
+    background-color: #1a1d21; /* 호버 시 더 어두운 색상 */
+}
+
+.pagination-button:focus {
+    outline: none; /* 포커스 시 기본 테두리 제거 */
+}
+
+/* 모바일 버전 스타일 */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* 폰트 크기 줄이기 */
+    }
+
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .popular-stocks table {
+        width: 100%;
+        border-collapse: collapse; /* 기본 테이블 레이아웃 유지 */
+    }
+
+    /* 숨길 열 스타일 */
+    .popular-stocks th,
+    .popular-stocks td {
+        display: table-cell;
+    }
+
+    .popular-stocks th,
+    .popular-stocks td {
+        display: none; /* 기본적으로 모든 열 숨기기 */
+    }
+
+    /* 필요한 열만 표시하기 */
+    .popular-stocks th:nth-child(1),
+    .popular-stocks td:nth-child(1),
+    .popular-stocks th:nth-child(2),
+    .popular-stocks td:nth-child(2),
+    .popular-stocks th:nth-child(3),
+    .popular-stocks td:nth-child(3),
+    .popular-stocks th:nth-child(4),
+    .popular-stocks td:nth-child(4),
+    .popular-stocks th:nth-child(5),
+    .popular-stocks td:nth-child(5) {
+        display: table-cell; /* 필요한 열 표시하기 */
+    }
+
+    .popular-stocks th:nth-child(n+6),
+    .popular-stocks td:nth-child(n+6) {
+        display: none; /* 6번째 열 이후 숨기기 */
+    }
 }
 
 /* 버튼 그룹 스타일 */
@@ -160,7 +299,7 @@ header h1 {
     transform: translateY(0);
   }
 
-/* 네비게이션 스타일 */
+  /* 네비게이션 스타일 */
 nav ul {
     list-style: none;
     display: flex;
@@ -186,87 +325,44 @@ nav ul li a:hover {
     background-color: #2c387e;
 }
 
-/* 컨테이너 및 메인 레이아웃 */
-.container {
-    max-width: 900px; /* 더 넓은 컨테이너 너비 */
-    margin: 20px auto;
-    padding: 20px;
-    background: #20232a;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 두 개의 열로 나누기 */
-    grid-template-rows: repeat(2, auto); /* 두 개의 행으로 나누기 */
-    gap: 20px; /* 그리드 간격 */
-}
-
-/* 각 섹션 스타일 */
-section {
-    background-color: #282c34;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 내용 가운데 정렬 */
-    justify-content: center; /* 내용 가운데 정렬 */
-}
-
-/* 제목 스타일 */
-h2.jua-regular {
+.chart-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3f51b5;
     color: #fff;
-    margin-bottom: 20px; /* 제목과 콘텐츠 사이 간격 */
-}
-
-
-/* 페이지네이션 스타일 */
-#pagination {
-    margin-top: 1em;
-    text-align: center;
-}
-
-.pagination-button {
-    background-color: #2c2f36; /* 배경색을 배경보다 약간 어두운 색으로 설정 */
-    color: #fff; /* 텍스트 색상 */
-    border: none;
-    border-radius: 20px; /* 동그란 모양 */
-    padding: 8px 16px;
-    margin: 0 4px;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 30px;
+    transition: background-color 0.3s;
 }
 
-.pagination-button:hover {
-    background-color: #1a1d21; /* 호버 시 더 어두운 색상 */
+.chart-button:hover {
+    background-color: #2c387e;
 }
 
-.pagination-button:focus {
-    outline: none; /* 포커스 시 기본 테두리 제거 */
+/* 이미지 컨테이너 설정 */
+#chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    height: 300px; /* 필요에 따라 조정 */
 }
 
-/* 페이지네이션 스타일 */
-#pagination {
-    margin-top: 1em;
-    text-align: center;
+/* 차트 이미지 설정 */
+.chart-image {
+    display: none; /* 기본으로 이미지를 숨깁니다 */
+    max-width: 100%;
+    height: auto;
+    filter: invert(100%); /* 색상 반전 */
 }
 
-.pagination-button {
-    background-color: #2c2f36; /* 배경색을 배경보다 약간 어두운 색으로 설정 */
-    color: #fff; /* 텍스트 색상 */
-    border: none;
-    border-radius: 20px; /* 동그란 모양 */
-    padding: 8px 16px;
-    margin: 0 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.pagination-button:hover {
-    background-color: #1a1d21; /* 호버 시 더 어두운 색상 */
-}
-
-.pagination-button:focus {
-    outline: none; /* 포커스 시 기본 테두리 제거 */
+/*TOP 20 제목 스타일*/
+.toph2 {
+    margin-top: 10px;
 }
 
 /*한글 폰트*/
@@ -281,83 +377,8 @@ h2.jua-regular {
     font-weight: 400;
     font-style: normal;
   }
-
-/* 뉴스 제목 스타일 */
-#news-content {
-    margin-top: 20px;
-    text-align: left; /* 전체 내용 가운데 정렬 */
-}
-
-#news-content a {
-    display: block;
-    color: #fff; /* 글자 색상 흰색 */
-    text-decoration: none; /* 기본 밑줄 제거 */
-    margin: -16px 0; /* 각 뉴스 항목 간의 간격 */
-    padding: 10px;
-}
-
-/* 뉴스 제목에 호버 효과 추가 */
-#news-content a:hover {
-    text-decoration: underline; /* 호버 시 밑줄 추가 */
-}
-
-/* 인기 종목 테이블 스타일 */
-.popular-stocks {
-    margin-top: 20px;
-}
-
-.popular-stocks table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto; /* 테이블을 가운데 정렬 */
-}
-
-.popular-stocks th, .popular-stocks td {
-    padding: 10px;
-    font-size: 12px;
-    border: none; /* 테두리 제거 */
-    text-align: center;
-}
-
-.popular-stocks th {
-    background-color: #2c2f36;
-}
-
-/* 첫 번째 항목 위에만 선 추가 */
-.popular-stocks tr:first-child td {
-    border-top: 2px solid #444; /* 첫 번째 행 위에만 선 추가 */
-}
-
-/* 기본 스타일 */
-.change-icon {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-/* 상승 아이콘과 텍스트 스타일 */
-.text-success {
-    color: #F04251; /* 상승 시 텍스트 빨간색 */
-}
-
-.text-success .change-icon.up {
-    border-bottom: 10px solid #F04251; /* 빨간색 삼각형 */
-}
-
-/* 하락 아이콘과 텍스트 스타일 */
-.text-danger {
-    color: #3485FA; /* 하락 시 텍스트 파란색 */
-}
-
-.text-danger .change-icon.down {
-    border-top: 10px solid #3485FA; /* 파란색 삼각형 */
-}
-
-/*푸터 디자인*/
+  
+  /*푸터 디자인*/
 .footer{
     background:#000;
     padding:30px 0px;
@@ -411,9 +432,4 @@ h2.jua-regular {
     margin:0% 3%;
     }
     }
-
-
-
-
-
 

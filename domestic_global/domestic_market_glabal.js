@@ -83,7 +83,13 @@ async function fetchPopularStocks(page = 1) {
                     <th>현재가</th>
                     <th>전일비</th>
                     <th>등락률</th>
+                    <th>거래량</th>
+                    <th>거래대금</th>
+                    <th>매수호가</th>
+                    <th>매도호가</th>
                     <th>시가총액</th>
+                    <th>PER</th>
+                    <th>ROE</th>
                 </tr>
             `;
             table.appendChild(thead);
@@ -103,7 +109,13 @@ async function fetchPopularStocks(page = 1) {
                     <td>${formatNumber(stock.price)}</td>
                     <td class="${changeClass}"><span class="change-icon ${rateIconClass}"></span> ${formatNumber(stock.change)}</td>
                     <td class="${changeClass}">${formatRate(stock.rate)}</td>
+                    <td>${formatNumber(stock.volume)}</td>
+                    <td>${formatNumber(stock.amount)}</td>
+                    <td>${formatNumber(stock.bid)}</td>
+                    <td>${formatNumber(stock.ask)}</td>
                     <td>${formatNumber(stock.marketCap)}</td>
+                    <td>${stock.per}</td>
+                    <td>${stock.roe}</td>
                 `;
                 tbody.appendChild(row);
             });
@@ -130,10 +142,44 @@ async function fetchPopularStocks(page = 1) {
     }
 }
 
+//차트 js코드
+async function fetchChartImage(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (error) {
+        console.error('Error fetching chart image:', error);
+        return null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const kospiImageUrl = 'http://localhost:3000/api/kospi-chart-image';
+    const kosdaqImageUrl = 'http://localhost:3000/api/kosdaq-chart-image';
+    
+    const kospiChart = document.getElementById('kospiChart');
+    const kosdaqChart = document.getElementById('kosdaqChart');
+
+    const kospiImage = await fetchChartImage(kospiImageUrl);
+    if (kospiImage) {
+        kospiChart.src = kospiImage;
+    } else {
+        kospiChart.alt = '코스피 차트 이미지를 불러오는 데 실패했습니다.';
+    }
+
+    const kosdaqImage = await fetchChartImage(kosdaqImageUrl);
+    if (kosdaqImage) {
+        kosdaqChart.src = kosdaqImage;
+    } else {
+        kosdaqChart.alt = '코스닥 차트 이미지를 불러오는 데 실패했습니다.';
+    }
+});
+
+
 // 초기 데이터 로드
 fetchPopularStocks();
-
-
-
-
 

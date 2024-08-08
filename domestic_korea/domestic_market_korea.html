@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀프로젝트 주식 정보</title>
+    <link rel="stylesheet" href="domestic_market_korea.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="../teamproject_main/main.html">
+                <div class="button">
+                    <div class="box">C</div>
+                    <div class="box">U</div>
+                    <div class="box">S</div>
+                    <div class="box">T</div>
+                    <div class="box">O</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <div class="button-group">
+                <ul>
+                    <li><a href="../index.html" class="button2"><span>홈</span></a></li>
+                    <li><a href="../domestic_korea/domestic_market_korea.html" class="button2"><span>국내</span></a></li>
+                    <li><a href="../domestic_global/domestic_market_glabal.html" class="button2"><span>해외</span></a></li>
+                    <li><a href="#indicators" class="button2"><span>지표</span></a></li>
+                    <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="jua-regular">국내 증시</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="chart-section">
+                <h2 class="jua-regular">국내 증시 현황</h2>
+                <div class="button-group">
+                    <button id="kospi-button" class="chart-button jua-regular" onclick="showChart('kospi')">코스피 차트</button>
+                    <button id="kosdaq-button" class="chart-button jua-regular" onclick="showChart('kosdaq')">코스닥 차트</button>
+                </div>
+                <div id="chart-container">
+                    <img id="kospi-chart" src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png" alt="코스피 차트" class="chart-image">
+                    <img id="kosdaq-chart" src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSDAQ.png?sid=1723016005221" alt="코스닥 차트" class="chart-image">
+                </div>
+            </section>
+
+            <section class="results toph2">
+                <h2 class="jua-regular">인기 종목 TOP 100</h2>
+                <div id="popular-stocks-list">
+                    <!-- 인기 종목 테이블이 여기에 들어감 -->
+                </div>
+                <div id="pagination">
+                    <!-- 페이지네이션 버튼이 여기에 들어감 -->
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script>
+        function showChart(chartType) {
+            const kospiChart = document.getElementById('kospi-chart');
+            const kosdaqChart = document.getElementById('kosdaq-chart');
+            
+            if (chartType === 'kospi') {
+                kospiChart.style.display = 'block';
+                kosdaqChart.style.display = 'none';
+            } else if (chartType === 'kosdaq') {
+                kospiChart.style.display = 'none';
+                kosdaqChart.style.display = 'block';
+            }
+        }
+
+        // 기본으로 코스피 차트를 표시
+        document.addEventListener("DOMContentLoaded", function() {
+            showChart('kospi');
+        });
+    </script>
+
+<footer>
+    <div class="footer">
+    <div class="row">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-youtube"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    
+    <div class="row">
+    <ul>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Career</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    JAVA Study Team Project © 2024 8 10 Finished || Designed By: 현석,지은,도형 
+    </div>
+    </div>
+</footer>
+
+    <script src="domestic_market_korea.js"></script>
+</body>
+</html>
+
+
+

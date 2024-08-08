@@ -70,6 +70,34 @@ app.get('/api/popular-stocks', async (req, res) => {
     }
 });
 
+// 코스피 차트 이미지 제공
+app.get('/api/kospi-chart-image', async (req, res) => {
+    const imageUrl = 'https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png';
+    try {
+        const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+        res.setHeader('Content-Type', 'image/png');
+        res.send(imageResponse.data);
+    } catch (error) {
+        console.error('Error fetching kospi chart image:', error);
+        res.status(500).send('Error fetching kospi chart image');
+    }
+});
+
+// 코스닥 차트 이미지 제공
+app.get('/api/kosdaq-chart-image', async (req, res) => {
+    const imageUrl = 'https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSDAQ.png?sid=1723016005221';
+    try {
+        const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+        res.setHeader('Content-Type', 'image/png');
+        res.send(imageResponse.data);
+    } catch (error) {
+        console.error('Error fetching kosdaq chart image:', error);
+        res.status(500).send('Error fetching kosdaq chart image');
+    }
+});
+
+
+
 // 서버 시작
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running at http://0.0.0.0:${port}`);

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀프로젝트 주식 정보</title>
+    <link rel="stylesheet" href="domestic_market_glabal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="../teamproject_main/main.html">
+                <div class="button">
+                    <div class="box">C</div>
+                    <div class="box">U</div>
+                    <div class="box">S</div>
+                    <div class="box">T</div>
+                    <div class="box">O</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <div class="button-group">
+                <ul>
+                    <li><a href="../index.html" class="button2"><span>홈</span></a></li>
+                    <li><a href="../domestic_korea/domestic_market_korea.html" class="button2"><span>국내</span></a></li>
+                    <li><a href="../domestic_global/domestic_market_glabal.html" class="button2"><span>해외</span></a></li>
+                    <li><a href="#indicators" class="button2"><span>지표</span></a></li>
+                    <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="jua-regular">해외 증시</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="chart-section">
+                <h2 class="jua-regular">세계 주요 증시 현황</h2>
+                <div class="button-group">
+                    <button id="nas1-button" class="chart-button jua-regular" onclick="showChart('nas1')">다우산업</button>
+                    <button id="nas2-button" class="chart-button jua-regular" onclick="showChart('nas2')">나스닥종합</button>
+                    <button id="nas3-button" class="chart-button jua-regular" onclick="showChart('nas3')">S&P 500</button>
+                </div>
+                <div class="button-group">
+                    <button id="nas4-button" class="chart-button jua-regular" onclick="showChart('nas4')">영국</button>
+                    <button id="nas5-button" class="chart-button jua-regular" onclick="showChart('nas5')">프랑스</button>
+                    <button id="nas6-button" class="chart-button jua-regular" onclick="showChart('nas6')">독일</button>
+                </div>
+                <div id="chart-container">
+                    <img id="nas1-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/DJI@DJI.png?1723092709623" alt="다우산업 차트" class="chart-image" style="display: none;">
+                    <img id="nas2-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/NAS@IXIC.png?1723092709623" alt="나스닥종합 차트" class="chart-image" style="display: none;">
+                    <img id="nas3-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/SPI@SPX.png?1723092709624" alt="S&P 500 차트" class="chart-image" style="display: none;">
+                    <img id="nas4-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/LNS@FTSE100.png?1723092709623" alt="영국 차트" class="chart-image" style="display: none;">
+                    <img id="nas5-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/PAS@CAC40.png?1723092709623" alt="프랑스 차트" class="chart-image" style="display: none;">
+                    <img id="nas6-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/XTR@DAX30.png?1723092709624" alt="독일 차트" class="chart-image" style="display: none;">
+                </div>
+            </section>
+
+            <section class="results toph2">
+                <h2 class="jua-regular">인기 종목 TOP 20</h2>
+                <div id="popular-stocks-list">
+                    <!-- 인기 종목 테이블이 여기에 들어감 -->
+                </div>
+                <div id="pagination">
+                    <!-- 페이지네이션 버튼이 여기에 들어감 -->
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script>
+        function showChart(chartType) {
+            // 모든 차트 이미지를 숨기기
+            const charts = document.querySelectorAll('.chart-image');
+            charts.forEach(chart => {
+                chart.style.display = 'none';
+            });
+
+            // 선택한 차트만 표시
+            const selectedChart = document.getElementById(chartType + '-chart');
+            if (selectedChart) {
+                selectedChart.style.display = 'block';
+            }
+        }
+
+        // 기본으로 다우산업 차트를 표시
+        document.addEventListener("DOMContentLoaded", function() {
+            showChart('nas1');
+        });
+    </script>
+
+<footer>
+    <div class="footer">
+    <div class="row">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-youtube"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    
+    <div class="row">
+    <ul>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Career</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    JAVA Study Team Project © 2024 8 10 Finished || Designed By: 현석,지은,도형 
+    </div>
+    </div>
+</footer>
+
+    <script src="domestic_market_glabal.js"></script>
+</body>
+</html>

@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팀프로젝트 주식 정보</title>
     <link rel="stylesheet" href="JS_teamP_mainpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div>
-            <a href="index.html">
+            <a href="../teamproject_main/main.html">
                 <div class="button">
                     <div class="box">C</div>
                     <div class="box">U</div>
@@ -25,55 +28,94 @@
         <nav>
             <div class="button-group">
                 <ul>
-                    <li><a href="#home" class="button2"><span>홈</span></a></li>
-                    <li><a href="domestic_market_korea.html" class="button2"><span>국내</span></a></li>
-                    <li><a href="#international" class="button2"><span>해외</span></a></li>
-                    <li><a href="#indicators" class="button2"><span>증시</span></a></li>
+                    <li><a href="../index.html" class="button2"><span>홈</span></a></li>
+                    <li><a href="../domestic_korea/domestic_market_korea.html" class="button2"><span>국내</span></a></li>
+                    <li><a href="../domestic_global/domestic_market_glabal.html" class="button2"><span>해외</span></a></li>
+                    <li><a href="#indicators" class="button2"><span>지표</span></a></li>
                     <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
                 </ul>
             </div>
         </nav>
-        <h1>주식 정보 확인</h1>
+        <h1 class="jua-regular">주식 정보 확인</h1>
     </header>
     
     <!-- Main Content Section -->
     <main>
         <div class="container">
-            <div class="section-wrapper">
+            <div class="section-wrapper1">
                 <!-- Latest Economic News Section -->
                 <section id="latest-news">
-                    <h2>최신 경제 뉴스</h2>
+                    <h2 class="jua-regular">최신 경제 뉴스</h2>
                     <div id="news-content">
-                        <!-- 최신 경제 뉴스 내용이 여기에 들어갑니다 -->
-                    </div>
-                </section>
-
-                <!-- Global Exchange Rates Section -->
-                <section id="exchange-rates">
-                    <h2>세계 환율 정보</h2>
-                    <div id="exchange-content">
-                        <!-- 세계 환율 정보 내용이 여기에 들어갑니다 -->
-                    </div>
-                </section>
-                
-                <!-- Domestic Stocks Section -->
-                <section id="domestic-stocks">
-                    <h2>국내 주식 가격</h2>
-                    <div id="domestic-content">
-                        <!-- 국내 주식 가격 내용이 여기에 들어갑니다 -->
-                    </div>
-                </section>
-                
-                <!-- International Stocks Section -->
-                <section id="international-stocks">
-                    <h2>해외 주식 가격</h2>
-                    <div id="international-content">
-                        <!-- 해외 주식 가격 내용이 여기에 들어갑니다 -->
+                        <div><a href="https://n.news.naver.com/mnews/article/015/0005019595">이복현, 두산 작심 비판…"흠결 있으면 제한 없이...</a></div>
+                        <div><a href="https://n.news.naver.com/mnews/article/018/0005807632">1500달러 간다던 슈퍼마이크로, 400달러대 추...</a></div>
+                        <div><a href="https://n.news.naver.com/mnews/article/014/0005225129">두산·SK 저격?···이복현 “부족함 있다면 무제한...</a></div>
+                        <div><a href="https://n.news.naver.com/mnews/article/030/0003230233">출발선으로 돌아간 '밸류업 대장' 금융지주, 반등...</a></div>
+                        <div><a href="https://n.news.naver.com/mnews/article/277/0005456804">이복현 "두산, 정정신고서 부족시 횟수 제한없이...</a></div>
+                        <div><a href="https://n.news.naver.com/mnews/article/366/0001010650">정정신고서 낸 두산에… 이복현 금감원장 “부족...</a></div>
                     </div>
                 </section>
             </div>
+
+            <div class="section-wrapper2">
+                <!-- Global Exchange Rates Section -->
+                <section id="exchange-rates">
+                    <h2 class="jua-regular">세계 환율 정보</h2>
+                    <div id="exchange-content">
+                        <!-- 세계 환율 정보 내용이 여기에 들어감 -->
+                    </div>
+                </section>
+            </div>
+
+            <div class="section-wrapper3">
+                <!-- Domestic Stocks Section -->
+                <section id="domestic-stocks">
+                    <h2 class="jua-regular">TOP 종목</h2>
+                    <div id="domestic-content">
+                        <div id="popular-stocks-list">
+                            <!-- 인기 종목 테이블이 여기에 들어감 -->
+                        </div>
+                    </div>
+                </section>
+            </div>    
+
+            <div class="section-wrapper4">
+                <!-- International Stocks Section -->
+                <section id="international-stocks">
+                    <h2 class="jua-regular">해외 주식 가격</h2>
+                    <div id="international-content">
+                        <!-- 해외 주식 가격 내용이 여기에 들어감 -->
+                    </div>
+                </section>
+            </div>
+            </div>
         </div>
     </main>
+
+    <footer>
+        <div class="footer">
+        <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        
+        <div class="row">
+        <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Career</a></li>
+        </ul>
+        </div>
+        
+        <div class="row">
+        JAVA Study Team Project © 2024 8 10 Finished || Designed By: 현석,지은,도형 
+        </div>
+        </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="JS_teamP_mainpage.js"></script>
