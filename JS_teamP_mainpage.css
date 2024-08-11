@@ -102,6 +102,13 @@ header h1 {
     margin: 0 10px; /* 버튼 간 간격 */
 }
 
+.nav-group {
+    background-image: url(../teamproject_main/mainpage_background.jpg);
+    background-size: 100% auto; /* 너비를 100%로 맞추고, 높이는 자동으로 조정 */
+    background-repeat: no-repeat;
+    background-position: center 20%; /* 배경 이미지를 가운데 정렬하고, 상단에 위치 */
+}
+
 /* From Uiverse.io by mrhyddenn */ 
 .button {
     display: flex;
@@ -411,6 +418,68 @@ h2.jua-regular {
     margin:0% 3%;
     }
     }
+
+/* 세계 환율 정보 테이블 스타일 */
+#exchange-rates {
+    background-color: black
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#exchange-rates table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+#exchange-rates th, #exchange-rates td {
+    padding: 10px;
+    font-size: 12px;
+    border: none; /* 테두리 제거 */
+    text-align: center;
+}
+
+#exchange-rates th {
+    font-weight: bold; /* bold로 수정 */
+    background-color: #2c2f36;
+    color: white;
+}
+
+/* 첫 번째 항목 위에만 선 추가 */
+#exchange-rates tr:first-child td {
+    border-top: 2px solid #444; /* 첫 번째 행 위에만 선 추가 */
+}
+
+/* 해외 주식 가격 테이블 스타일 */
+#international-stocks {
+    background-color: black
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#international-stocks table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+#international-stocks th, #international-stocks td {
+    padding: 10px;
+    font-size: 12px;
+    border: none; /* 테두리 제거 */
+    text-align: center;
+}
+
+#international-stocks th {
+    font-weight: bold; /* bold로 수정 */
+    background-color: #2c2f36;
+    color: white;
+}
+
+/* 첫 번째 항목 위에만 선 추가 */
+#international-stocks tr:first-child td {
+    border-top: 2px solid #444; /* 첫 번째 행 위에만 선 추가 */
+}
 
 
 

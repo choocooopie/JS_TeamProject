@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUSTOMINFO</title>
-    <link rel="stylesheet" href="main.css">
+    <title>팀프로젝트 주식 정보</title>
+    <link rel="stylesheet" href="jieun_page1.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
-        <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&family=Orbitron:wght@556&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div>
             <a href="../teamproject_main/main.html">
@@ -36,22 +33,55 @@
         </div>
         <nav>
             <div class="button-group">
-                <ul>
-                    <li><a href="../jieun_page/jieun_page1.html" class="button2"><span>Todolist & Calender</span></a></li>
-                    <li><a href="../index.html" class="button2"><span>Economy & stocks</span></a></li>
-                    <li><a href="../dohyung_page/dohyung_page1.html" class="button2"><span>Weather & News</span></a></li>
-                </ul>
             </div>
         </nav>
     </header>
 
-    <div class="mainback-wrapper">
-        <div class="mainback">
-            <h1 class="title orbitron-uniquifier">You can customize the information you need</h1>
+
+        <div class="container">
+            <div class="wrapper">
+                <div class="todo-list">
+                    <h2>ToDoList</h2>
+                    <ul id="todoItems"></ul>
+                    <input class="button-todo" type="text" id="todoInput" placeholder="할 일을 입력하세요">
+                    <button class="buttons" onclick="addTodo()">추가</button>
+                </div>
+                
+                <div class="calendar">
+                    <div class="month">
+                        <button class="buttons" id="prev" onclick="prevMonth()">&#10094;</button>
+                        <div id="month-year"></div>
+                        <button class="buttons" id="next" onclick="nextMonth()">&#10095;</button>
+                    </div>
+                    <div class="weekdays">
+                        <div>SUN</div>
+                        <div>MON</div>
+                        <div>TUE</div>
+                        <div>WED</div>
+                        <div>THU</div>
+                        <div>FRI</div>
+                        <div>SAT</div>
+                    </div>
+                    <div class="days" id="days"></div>
+                </div>
+            </div>
+        </div>
+        
+
+    <div id="memoPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>메모 추가</h2>
+            <textarea id="memoText" rows="5" placeholder="메모를 입력하세요"></textarea>
+            <button class="buttons" onclick="saveMemo()">저장</button>
         </div>
     </div>
-    
-    
+
+    <div class="mainback-wrapper">
+        <div class="mainback">
+        </div>
+    </div>
+
     <footer>
             <div class="footer">
             <div class="row">
@@ -77,9 +107,6 @@
             </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="JS_teamP_mainpage.js"></script>
+    <script src="jieun_page1.js"></script>
 </body>
 </html>
-
-

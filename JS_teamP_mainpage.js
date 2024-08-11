@@ -130,6 +130,61 @@ async function fetchPopularStocks(page = 1) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const exchangeRatesData = [
+        ["영국 파운드/달러", "GBPUSD", "1.2732", "하락 0.0029", "- 0.23%"],
+        ["유로/달러", "EURUSD", "1.0926", "상승 0.0004", "+ 0.04%"],
+        ["호주 달러/달러", "AUDUSD", "0.6577", "하락 0.0005", "- 0.08%"],
+        // 나머지 데이터
+    ];
+
+    const internationalStocksData = [
+        ["애플", "AAPL", "$180.00", "상승 1.50", "+ 0.84%"],
+        ["구글", "GOOGL", "$2800.00", "하락 10.00", "- 0.36%"],
+        ["아마존", "AMZN", "$3400.00", "상승 20.00", "+ 0.59%"],
+        ["마이크로소프트", "MSFT", "$300.00", "상승 5.00", "+ 1.69%"],
+        ["테슬라", "TSLA", "$700.00", "하락 15.00", "- 2.10%"],
+        ["넷플릭스", "NFLX", "$650.00", "상승 10.00", "+ 1.56%"],
+        ["페이스북", "META", "$250.00", "하락 7.50", "- 2.91%"],
+        ["버크셔 해서웨이", "BRK.B", "$350.00", "상승 8.00", "+ 2.34%"],
+        ["비자", "V", "$220.00", "하락 3.00", "- 1.35%"],
+        // 나머지 데이터
+    ];
+
+    const exchangeTableBody = document.getElementById('market-indicators-tbody');
+    exchangeRatesData.forEach(rate => {
+        const row = document.createElement('tr');
+        rate.forEach((item, index) => {
+            const cell = document.createElement('td');
+            cell.textContent = item;
+
+            if (index === 3 || index === 4) { // 전일대비와 등락률
+                cell.className = item.startsWith('상승') ? 'text-success' : item.startsWith('하락') ? 'text-danger' : 'text-neutral';
+            }
+
+            row.appendChild(cell);
+        });
+        exchangeTableBody.appendChild(row);
+    });
+
+    const stocksTableBody = document.getElementById('international-stocks-tbody');
+    internationalStocksData.forEach(stock => {
+        const row = document.createElement('tr');
+        stock.forEach((item, index) => {
+            const cell = document.createElement('td');
+            cell.textContent = item;
+
+            if (index === 3 || index === 4) { // 변동과 등락률
+                cell.className = item.startsWith('상승') ? 'text-success' : item.startsWith('하락') ? 'text-danger' : 'text-neutral';
+            }
+
+            row.appendChild(cell);
+        });
+        stocksTableBody.appendChild(row);
+    });
+});
+
+
 // 초기 데이터 로드
 fetchPopularStocks();
 

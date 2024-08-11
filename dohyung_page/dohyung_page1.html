@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 및 날씨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
+        <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&family=Orbitron:wght@556&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dohyung_page1.css">
+</head>
+<body class="container">
+    <header class="mainback">
+        <div>
+            <a href="../teamproject_main/main.html">
+                <div class="button">
+                    <div class="box">C</div>
+                    <div class="box">U</div>
+                    <div class="box">S</div>
+                    <div class="box">T</div>
+                    <div class="box">O</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <div class="button-group">
+            </div>
+        </nav>
+
+
+
+        
+            <div class="header-container">
+                <h1>날씨와 뉴스</h1>
+                <div id="weather" class="weather-container">
+                    <!-- Weather API Data will be inserted here -->
+                    <span>현재 서울 날씨: <span id="current-weather">Loading...</span></span>
+                </div>
+            </div>
+        </header>
+    
+    <div class="content">
+        <div class="dictionary-container">
+            <h2>사전</h2>
+            <input type="text" id="word-input" placeholder="모르는 단어를 검색하세요!" />
+            <button onclick="lookupWord()"><span>검색</span></button>
+            <div id="dictionary-result"></div>
+        </div>
+
+        <div class="news-container">
+            <h2>뉴스 헤드라인</h2>
+            <ul id="news-list" class="news"></ul>
+        </div>
+        
+        <style>
+            .news-container a {
+                color: white;       /* 텍스트 색상을 하얀색으로 설정 */
+                text-decoration: none; /* 밑줄 제거 */
+                font-size: 20px; /* 글자 크기 */
+            }
+        
+            .news-container a:hover {
+                text-decoration: underline; /* 마우스를 올렸을 때 밑줄 추가 (선택 사항) */
+                color: #ccc; /* 마우스를 올렸을 때 텍스트 색상 변경 (선택 사항) */
+            }
+        </style>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer">
+        <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        
+        <div class="row">
+        <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Career</a></li>
+        </ul>
+        </div>
+        
+        <div class="row">
+        JAVA Study Team Project © 2024 8 10 Finished || Designed By: 현석,지은,도형 
+        </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dohyung_page1.js"></script>
+</body>
+</html>

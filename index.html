@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header class="nav-group">
         <div>
             <a href="../teamproject_main/main.html">
                 <div class="button">
@@ -31,11 +31,12 @@
                     <li><a href="../index.html" class="button2"><span>홈</span></a></li>
                     <li><a href="../domestic_korea/domestic_market_korea.html" class="button2"><span>국내</span></a></li>
                     <li><a href="../domestic_global/domestic_market_glabal.html" class="button2"><span>해외</span></a></li>
-                    <li><a href="#indicators" class="button2"><span>지표</span></a></li>
-                    <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
+                    <li><a href="../domestic_exchange/domestic_market_exchange.html" class="button2"><span>시장지표</span></a></li>
                 </ul>
             </div>
         </nav>
+    </header>
+    <header>
         <h1 class="jua-regular">주식 정보 확인</h1>
     </header>
     
@@ -62,7 +63,20 @@
                 <section id="exchange-rates">
                     <h2 class="jua-regular">세계 환율 정보</h2>
                     <div id="exchange-content">
-                        <!-- 세계 환율 정보 내용이 여기에 들어감 -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>통화명</th>
+                                    <th>심볼</th>
+                                    <th>현재가</th>
+                                    <th>전일대비</th>
+                                    <th>등락률</th>
+                                </tr>
+                            </thead>
+                            <tbody id="market-indicators-tbody">
+                                <!-- 데이터가 여기에 추가됩니다. -->
+                            </tbody>
+                        </table>
                     </div>
                 </section>
             </div>
@@ -84,10 +98,22 @@
                 <section id="international-stocks">
                     <h2 class="jua-regular">해외 주식 가격</h2>
                     <div id="international-content">
-                        <!-- 해외 주식 가격 내용이 여기에 들어감 -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>회사명</th>
+                                    <th>심볼</th>
+                                    <th>현재가</th>
+                                    <th>변동</th>
+                                    <th>등락률</th>
+                                </tr>
+                            </thead>
+                            <tbody id="international-stocks-tbody">
+                                <!-- 데이터가 여기에 추가됩니다. -->
+                            </tbody>
+                        </table>
                     </div>
                 </section>
-            </div>
             </div>
         </div>
     </main>
@@ -121,6 +147,7 @@
     <script src="JS_teamP_mainpage.js"></script>
 </body>
 </html>
+
 
 
 

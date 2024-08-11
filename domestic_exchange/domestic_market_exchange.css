@@ -481,37 +481,55 @@ nav ul li a:hover {
 }
 
 
-/* 인기 종목 테이블 스타일 */
-.popular-stocks {
+/* 시장지표 테이블 스타일 */
+.market-indicators {
     margin-top: 20px;
 }
 
-.popular-stocks table {
+.market-indicators table {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto; /* 테이블을 가운데 정렬 */
 }
 
-.popular-stocks th, .popular-stocks td {
+.market-indicators th, .market-indicators td {
     padding: 10px;
     font-size: 12px;
     border: none; /* 테두리 제거 */
     text-align: center;
 }
 
-.popular-stocks th {
-    font-style: bold;
+.market-indicators th {
+    font-weight: bold; /* bold로 수정 */
     background-color: #2c2f36;
 }
 
 /* 첫 번째 항목 위에만 선 추가 */
-.popular-stocks tr:first-child td {
+.market-indicators tr:first-child td {
     border-top: 2px solid #444; /* 첫 번째 행 위에만 선 추가 */
 }
 
 /* 상승 아이콘과 텍스트 스타일 */
 .text-success {
     color: #F04251; /* 상승 시 텍스트 빨간색 */
+}
+
+.text-success .change-icon.up {
+    border-bottom: 10px solid #F04251; /* 빨간색 삼각형 */
+}
+
+/* 하락 아이콘과 텍스트 스타일 */
+.text-danger {
+    color: #3485FA; /* 하락 시 텍스트 파란색 */
+}
+
+.text-danger .change-icon.down {
+    border-top: 10px solid #3485FA; /* 파란색 삼각형 */
+}
+
+/* 보합 아이콘과 텍스트 스타일 */
+.text-neutral {
+    color: #6c757d; /* 보합 시 텍스트 회색 */
 }
 
 .text-success .change-icon.up {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팀프로젝트 주식 정보</title>
-    <link rel="stylesheet" href="domestic_market_glabal.css">
+    <link rel="stylesheet" href="domestic_market_exchange.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
@@ -37,46 +37,45 @@
         
     </header>
     <header>
-        <h1 class="jua-regular">해외 증시</h1>
+        <h1 class="jua-regular">시장 지표</h1>
     </header>
     <main>
         <div class="container">
             <section class="chart-section">
                 <h2 class="jua-regular">세계 주요 증시 현황</h2>
                 <div class="button-group">
-                    <button id="nas1-button" class="chart-button jua-regular" onclick="showChart('nas1')">다우산업</button>
-                    <button id="nas2-button" class="chart-button jua-regular" onclick="showChart('nas2')">나스닥종합</button>
-                    <button id="nas3-button" class="chart-button jua-regular" onclick="showChart('nas3')">S&P 500</button>
+                    <button id="nas1-button" class="chart-button jua-regular" onclick="showChart('nas1')">미국USD</button>
+                    <button id="nas2-button" class="chart-button jua-regular" onclick="showChart('nas2')">USD/JPY</button>
+                    <button id="nas3-button" class="chart-button jua-regular" onclick="showChart('nas3')">휘발유</button>
                 </div>
                 <div class="button-group">
-                    <button id="nas4-button" class="chart-button jua-regular" onclick="showChart('nas4')">영국</button>
-                    <button id="nas5-button" class="chart-button jua-regular" onclick="showChart('nas5')">프랑스</button>
-                    <button id="nas6-button" class="chart-button jua-regular" onclick="showChart('nas6')">독일</button>
+                    <button id="nas4-button" class="chart-button jua-regular" onclick="showChart('nas4')">일본JPY</button>
+                    <button id="nas5-button" class="chart-button jua-regular" onclick="showChart('nas5')">국제 금</button>
+                    <button id="nas6-button" class="chart-button jua-regular" onclick="showChart('nas6')">국내 금</button>
                 </div>
                 <div id="chart-container">
-                    <img id="nas1-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/DJI@DJI.png?1723092709623" alt="다우산업 차트" class="chart-image" style="display: none;">
-                    <img id="nas2-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/NAS@IXIC.png?1723092709623" alt="나스닥종합 차트" class="chart-image" style="display: none;">
-                    <img id="nas3-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/SPI@SPX.png?1723092709624" alt="S&P 500 차트" class="chart-image" style="display: none;">
-                    <img id="nas4-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/LNS@FTSE100.png?1723092709623" alt="영국 차트" class="chart-image" style="display: none;">
-                    <img id="nas5-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/PAS@CAC40.png?1723092709623" alt="프랑스 차트" class="chart-image" style="display: none;">
-                    <img id="nas6-chart" src="https://ssl.pstatic.net/imgfinance/chart/world/continent/XTR@DAX30.png?1723092709624" alt="독일 차트" class="chart-image" style="display: none;">
+                    <img id="nas1-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_USDKRW.png" alt="다우산업 차트" class="chart-image" style="display: none;">
+                    <img id="nas2-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_USDJPY.png" alt="나스닥종합 차트" class="chart-image" style="display: none;">
+                    <img id="nas3-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/OIL_GSL.png" alt="S&P 500 차트" class="chart-image" style="display: none;">
+                    <img id="nas4-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_JPYKRW.png" alt="영국 차트" class="chart-image" style="display: none;">
+                    <img id="nas5-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/CMDT_GC.png" alt="프랑스 차트" class="chart-image" style="display: none;">
+                    <img id="nas6-chart" src="https://ssl.pstatic.net/imgfinance/chart/marketindex/CMDT_GD.png" alt="독일 차트" class="chart-image" style="display: none;">
                 </div>
             </section>
 
-            <div class="popular-stocks">
-                <h2 class="jua-regular p1234">해외 주요지수</h2>
+            <div class="market-indicators">
+                <h2 class="jua-regular p1234">국제 시장 환율</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>국가명</th>
-                            <th>지수명</th>
+                            <th>통화명</th>
+                            <th>심볼</th>
                             <th>현재가</th>
                             <th>전일대비</th>
                             <th>등락률</th>
-                            <th>시간</th>
                         </tr>
                     </thead>
-                    <tbody id="world-markets-tbody">
+                    <tbody id="market-indicators-tbody">
                         <!-- 데이터가 여기에 추가됩니다. -->
                     </tbody>
                 </table>
@@ -141,6 +140,6 @@
     </div>
 </footer>
 
-    <script src="domestic_market_glabal.js"></script>
+    <script src="domestic_market_exchange.js"></script>
 </body>
 </html>

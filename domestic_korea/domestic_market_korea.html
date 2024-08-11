@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/a8be35214f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header class="nav-group">
         <div>
             <a href="../teamproject_main/main.html">
                 <div class="button">
@@ -30,11 +30,13 @@
                     <li><a href="../index.html" class="button2"><span>홈</span></a></li>
                     <li><a href="../domestic_korea/domestic_market_korea.html" class="button2"><span>국내</span></a></li>
                     <li><a href="../domestic_global/domestic_market_glabal.html" class="button2"><span>해외</span></a></li>
-                    <li><a href="#indicators" class="button2"><span>지표</span></a></li>
-                    <li><a href="#crypto" class="button2"><span>가상자산</span></a></li>
+                    <li><a href="../domestic_exchange/domestic_market_exchange.html" class="button2"><span>시장지표</span></a></li>
                 </ul>
             </div>
         </nav>
+        
+    </header>
+    <header>
         <h1 class="jua-regular">국내 증시</h1>
     </header>
     <main>
@@ -45,11 +47,27 @@
                     <button id="kospi-button" class="chart-button jua-regular" onclick="showChart('kospi')">코스피 차트</button>
                     <button id="kosdaq-button" class="chart-button jua-regular" onclick="showChart('kosdaq')">코스닥 차트</button>
                 </div>
+                <!-- 색상 설명 추가 -->
+                <div id="legend-container">
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #8a2be2;"></span> 코스피
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #32cd32;"></span> 개인
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #1e90ff;"></span> 외국인
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #ff8c00;"></span> 기관
+                    </div>
+                </div>
                 <div id="chart-container">
                     <img id="kospi-chart" src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png" alt="코스피 차트" class="chart-image">
                     <img id="kosdaq-chart" src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSDAQ.png?sid=1723016005221" alt="코스닥 차트" class="chart-image">
                 </div>
             </section>
+            
 
             <section class="results toph2">
                 <h2 class="jua-regular">인기 종목 TOP 100</h2>

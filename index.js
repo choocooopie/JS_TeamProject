@@ -70,6 +70,45 @@ app.get('/api/popular-stocks', async (req, res) => {
     }
 });
 
+
+// 세계 증시 데이터 제공
+app.get('/api/world-markets', async (req, res) => {
+    try {
+        const url = 'https://finance.naver.com/world/';
+        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        const html = iconv.decode(response.data, 'euc-kr');
+        const $ = cheerio.load(html);
+
+        const data = [];
+        const table = $('div.section_quot table').first();
+        const headers = [];
+
+        // 테이블 헤더 추출
+        table.find('thead tr').first().find('th').each((i, th) => {
+            headers.push($(th).text().trim());
+        });
+
+        // 테이블 바디 데이터 추출
+        table.find('tbody tr').each((i, row) => {
+            const rowData = {};
+            $(row).find('td').each((j, td) => {
+                const header = headers[j];
+                if (header) {
+                    rowData[header] = $(td).text().trim();
+                }
+            });
+            if (Object.keys(rowData).length > 0) {
+                data.push(rowData);
+            }
+        });
+
+        res.json(data);
+    } catch (error) {
+        console.error('세계 증시 데이터를 가져오는 데 오류가 발생했습니다.', error);
+        res.status(500).json({ error: 'Failed to fetch world markets data' });
+    }
+});
+
 // 코스피 차트 이미지 제공
 app.get('/api/kospi-chart-image', async (req, res) => {
     const imageUrl = 'https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png';

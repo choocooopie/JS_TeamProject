@@ -61,125 +61,94 @@ async function fetchStockData() {
     }
 }
 
-// 인기 종목 30개를 가져와서 페이지에 표시하는 함수
-async function fetchPopularStocks(page = 1) {
-    try {
-        const response = await fetch(`http://localhost:3000/api/popular-stocks?page=${page}`);
-        const data = await response.json();
+document.addEventListener('DOMContentLoaded', () => {
+    const data = [
+        ["미국", "다우 산업", "39,497.54", "51.05", "+0.13%", "08.09 16:20"],
+        ["미국", "다우 운송", "15,334.53", "100.64", "-0.65%", "08.09 16:20"],
+        ["미국", "나스닥 종합", "16,745.30", "85.28", "+0.51%", "08.09 16:15"],
+        ["미국", "나스닥 100", "18,513.10", "99.28", "+0.54%", "08.09 16:15"],
+        ["미국", "S&P 500", "5,344.16", "24.85", "+0.47%", "08.09 16:55"],
+        ["미국", "필라델피아 반도체", "4,709.45", "20.56", "-0.43%", "08.09 16:15"],
+        ["브라질", "브라질 BOVESPA", "130,614.59", "1,953.71", "+1.52%", "08.09"],
+        ["중국", "상해종합", "2,862.19", "7.707", "-0.27%", "08.09 15:00"],
+        ["중국", "상해 A", "2,999.89", "8.13", "-0.27%", "08.09 15:00"],
+        ["중국", "상해 B", "232.87", "0.258", "+0.11%", "08.09 15:00"],
+        ["일본", "니케이225", "35,025.00", "193.85", "+0.56%", "08.09 15:15"],
+        ["홍콩", "항셍", "17,090.23", "198.40", "+1.17%", "08.09 16:09"],
+        ["홍콩", "항셍 차이나기업(H)", "6,017.85", "76.38", "+1.29%", "08.09 16:09"],
+        ["홍콩", "항셍 차이나대기업(R)", "3,554.56", "31.38", "+0.89%", "08.09 16:09"],
+        ["대만", "대만 가권", "21,469.00", "598.90", "+2.87%", "08.09 13:33"],
+        ["인도", "인도 SENSEX", "79,705.91", "819.69", "+1.04%", "08.09 15:59"],
+        ["말레이시아", "말레이시아 KLCI", "1,596.05", "5.67", "+0.36%", "08.09 17:00"],
+        ["인도네시아", "인도네시아 IDX종합", "7,257.00", "61.88", "+0.86%", "08.09"],
+        ["영국", "영국 FTSE 100", "8,168.10", "23.13", "+0.28%", "08.09 16:35"],
+        ["프랑스", "프랑스 CAC 40", "7,269.71", "22.26", "+0.31%", "08.09 17:35"],
+        ["독일", "독일 DAX", "17,722.88", "42.48", "+0.24%", "08.09 17:30"],
+        ["유럽", "유로스톡스 50", "4,675.28", "6.54", "+0.14%", "08.09 17:35"],
+        ["러시아", "러시아 RTS", "1,151.93", "2.30", "-0.20%", "06.20"],
+        ["이탈리아", "이탈리아 FTSE MIB", "31,782.23", "40.32", "+0.12%", "08.09 17:35"]
+    ];
 
-        if (data.stocks && Array.isArray(data.stocks)) {
-            const list = document.getElementById('popular-stocks-list');
-            list.innerHTML = ''; // 리스트 초기화
+    const tbody = document.getElementById('world-markets-tbody');
 
-            // 테이블 구조 생성
-            const table = document.createElement('table');
-            table.classList.add('table', 'table-striped', 'popular-stocks');
+    data.forEach(row => {
+        const tr = document.createElement('tr');
 
-            const thead = document.createElement('thead');
-            thead.innerHTML = `
-                <tr>
-                    <th>순위</th>
-                    <th>종목명</th>
-                    <th>현재가</th>
-                    <th>전일비</th>
-                    <th>등락률</th>
-                    <th>거래량</th>
-                    <th>거래대금</th>
-                    <th>매수호가</th>
-                    <th>매도호가</th>
-                    <th>시가총액</th>
-                    <th>PER</th>
-                    <th>ROE</th>
-                </tr>
-            `;
-            table.appendChild(thead);
+        row.forEach((cell, index) => {
+            const td = document.createElement('td');
 
-            const tbody = document.createElement('tbody');
-            data.stocks.forEach(stock => {
-                const row = document.createElement('tr');
-
-                // 상승/하락 색상 및 아이콘 추가
-                const rateValue = parseFloat(stock.rate.replace(/,/g, '').replace(/[^0-9.-]/g, ''));
-                const changeClass = rateValue >= 0 ? 'text-success' : 'text-danger';
-                const rateIconClass = rateValue >= 0 ? 'up' : 'down';
-
-                row.innerHTML = `
-                    <td>${stock.rank}</td>
-                    <td>${stock.name}</td>
-                    <td>${formatNumber(stock.price)}</td>
-                    <td class="${changeClass}"><span class="change-icon ${rateIconClass}"></span> ${formatNumber(stock.change)}</td>
-                    <td class="${changeClass}">${formatRate(stock.rate)}</td>
-                    <td>${formatNumber(stock.volume)}</td>
-                    <td>${formatNumber(stock.amount)}</td>
-                    <td>${formatNumber(stock.bid)}</td>
-                    <td>${formatNumber(stock.ask)}</td>
-                    <td>${formatNumber(stock.marketCap)}</td>
-                    <td>${stock.per}</td>
-                    <td>${stock.roe}</td>
-                `;
-                tbody.appendChild(row);
-            });
-
-            table.appendChild(tbody);
-            list.appendChild(table);
-
-            // 페이지네이션 버튼 생성
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = ''; // 페이지네이션 초기화
-
-            for (let i = 1; i <= data.totalPages; i++) {
-                const button = document.createElement('button');
-                button.textContent = i;
-                button.classList.add('pagination-button');
-                button.addEventListener('click', () => fetchPopularStocks(i));
-                pagination.appendChild(button);
+            if (index >= 2 && index <= 4) { // 현재가, 전일대비, 등락률 열에 스타일을 적용
+                const change = parseFloat(row[4].replace('%', ''));
+                td.classList.add(change > 0 ? 'text-success' : 'text-danger');
+                td.innerHTML = (index === 4) ? `
+                    <span class="change-icon ${change > 0 ? 'up' : 'down'}"></span> ${cell}
+                ` : cell;
+            } else {
+                td.textContent = cell;
             }
-        } else {
-            console.error('인기 종목 데이터를 가져오는 데 실패했습니다.');
+
+            // 다우 산업 및 다우 운송에 호버 스타일 및 모달 기능 추가
+            if (row[1] === "다우 산업" || row[1] === "다우 운송") {
+                td.classList.add('hover-target'); // 호버 타겟 클래스 추가
+                td.addEventListener('click', () => {
+                    const modal = document.getElementById('myModal');
+                    const modalImage = document.getElementById('modal-image');
+                    if (row[1] === "다우 산업") {
+                        modalImage.src = 'https://ssl.pstatic.net/imgfinance/chart/world/month3/DJI@DJI.png?1723383393792';
+                    } else if (row[1] === "다우 운송") {
+                        modalImage.src = 'https://ssl.pstatic.net/imgfinance/chart/world/month3/DJI@DJT.png?1723384033413';
+                    }
+                    modal.style.display = 'block';
+                });
+            }
+
+            tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+    });
+
+    // 모달 닫기 이벤트
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.querySelector('.close');
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
         }
-    } catch (error) {
-        console.error('인기 종목 데이터를 가져오는 데 오류가 발생했습니다.', error);
-    }
-}
-
-//차트 js코드
-async function fetchChartImage(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const blob = await response.blob();
-        return URL.createObjectURL(blob);
-    } catch (error) {
-        console.error('Error fetching chart image:', error);
-        return null;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const kospiImageUrl = 'http://localhost:3000/api/kospi-chart-image';
-    const kosdaqImageUrl = 'http://localhost:3000/api/kosdaq-chart-image';
-    
-    const kospiChart = document.getElementById('kospiChart');
-    const kosdaqChart = document.getElementById('kosdaqChart');
-
-    const kospiImage = await fetchChartImage(kospiImageUrl);
-    if (kospiImage) {
-        kospiChart.src = kospiImage;
-    } else {
-        kospiChart.alt = '코스피 차트 이미지를 불러오는 데 실패했습니다.';
-    }
-
-    const kosdaqImage = await fetchChartImage(kosdaqImageUrl);
-    if (kosdaqImage) {
-        kosdaqChart.src = kosdaqImage;
-    } else {
-        kosdaqChart.alt = '코스닥 차트 이미지를 불러오는 데 실패했습니다.';
-    }
+    });
 });
 
 
-// 초기 데이터 로드
-fetchPopularStocks();
+
+
+
+
+
+
+
 
